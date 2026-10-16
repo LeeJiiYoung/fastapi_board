@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>게시판</title>
+</head>
+<body>
+  <h1>게시판</h1>
+
+  <form method="post" action="/board">
+    <input name="title" placeholder="제목" required><br>
+    <textarea name="content" placeholder="내용" required></textarea><br>
+    <button type="submit">등록</button>
+  </form>
+
+  <hr>
+
+  <ul>
+  {% for post in posts %}
+    <li><b>{{ post.title }}</b> - {{ post.content }}</li>
+  {% else %}
+    <li>아직 글이 없습니다.</li>
+  {% endfor %}
+  </ul>
+</body>
+</html>
